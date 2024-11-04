@@ -1,0 +1,32 @@
+version: '3.8' 
+
+services: #list all your services
+  auth:
+    build:
+      context: ./auth/my-app
+      dockerfile: dockerfile
+    ports:
+      - "3000:80"  # identify the port 3000
+    depends_on:
+      - backend  # Ensure backend starts before frontend
+  
+  store:
+    build:
+      context: ./store/my-app
+      dockerfile: dockerfile
+    ports:
+      - "3001:80"  # identify the port 3000
+    depends_on:
+      - backend  # Ensure backend starts before frontend
+
+  backend:
+    build:
+      context: ./server # Path to your backend Dockerfile
+      dockerfile: dockerfile
+    ports:
+      - "5000:5000"  #identify the port 5000
+  
+
+
+
+
