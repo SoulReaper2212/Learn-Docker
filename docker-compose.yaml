@@ -3,7 +3,7 @@ version: '3.8'
 services: #list all your services
   auth:
     build:
-      context: ./auth/my-app
+      context: ./auth
       dockerfile: dockerfile
     ports:
       - "3000:80"  # identify the port 3000
@@ -12,7 +12,7 @@ services: #list all your services
   
   store:
     build:
-      context: ./store/my-app
+      context: ./store
       dockerfile: dockerfile
     ports:
       - "3001:80"  # identify the port 3000
